@@ -1,0 +1,32 @@
+---
+import FirstView from "../components/FirstView.astro";
+import Layout from "../layouts/Layout.astro";
+import SectionA from "../components/SectionA.astro";
+
+import "../styles/destyle.css";
+import "../styles/common.css";
+import SectionB from "../components/SectionB.astro";
+import SectionC from "../components/SectionC.astro";
+import SectionFAQ from "../components/SectionFAQ.astro";
+import SectionD from "../components/SectionD.astro";
+import StickyButton from "../components/Shared/StickyButton.astro";
+---
+
+<Layout>
+  <main class="relative">
+    <FirstView />
+    <div class="relative my-5">
+      <SectionA />
+      <SectionB />
+      <SectionFAQ />
+      <SectionC />
+      <SectionD />
+
+      <StickyButton />
+    </div>
+  </main>
+</Layout>
+
+<script is:inline src="/assets/js/index.js"></script>
+
+<style></style>

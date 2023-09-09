@@ -1,0 +1,108 @@
+---
+import SectionTitle from "./Shared/SectionTitle.astro";
+
+type FAQ = {
+  question: string;
+  answer: string;
+};
+
+const faqList: FAQ[] = [];
+faqList.push({
+  question: "1 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  answer:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit.<br/>1 Asperiores aperiam dolore ex iusto sunt molestias assumenda magni soluta vero tempore eius ducimus provident voluptates iste quibusdam beatae quo, optio dolorem.",
+});
+faqList.push({
+  question: "2 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  answer:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit.<br/>2 Asperiores aperiam dolore ex iusto sunt molestias assumenda magni soluta vero tempore eius ducimus provident voluptates iste quibusdam beatae quo, optio dolorem.",
+});
+faqList.push({
+  question: "3 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  answer:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit.<br/>3 Asperiores aperiam dolore ex iusto sunt molestias assumenda magni soluta vero tempore eius ducimus provident voluptates iste quibusdam beatae quo, optio dolorem.",
+});
+faqList.push({
+  question: "4 Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  answer:
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit.<br/>4 Asperiores aperiam dolore ex iusto sunt molestias assumenda magni soluta vero tempore eius ducimus provident voluptates iste quibusdam beatae quo, optio dolorem.",
+});
+
+const title = "Section FAQ Title";
+---
+
+<div class="common_width anchor py-10">
+  <span id="faq"></span>
+  <div class="">
+    <SectionTitle classes="mb-8" title={title} />
+    <div>
+      {
+        faqList?.map((faq) => (
+          <>
+            <div class="transition rounded-xl bg-gray-200 mb-4">
+              <div class="accordion-header rounded-tr-xl rounded-tl-xl cursor-pointer transition flex space-x-5 px-5 py-4 items-center">
+                <div class="h-4 w-4 ">
+                  <svg
+                    class="fas fa-plus rotate-45 transition-all h-4 w-4 text-gray-500"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" />{" "}
+                    <line x1="18" y1="6" x2="6" y2="18" />{" "}
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </div>
+                <h3 class="text-base">{faq.question}</h3>
+              </div>
+              <div class="accordion-content px-5 pt-0 overflow-hidden max-h-0 bg-gray-100 rounded-br-xl rounded-bl-xl">
+                <p
+                  class="text-base pt-4 pl-9 pr-2 pb-6 text-justify"
+                  set:html={faq.answer}
+                />
+              </div>
+            </div>
+          </>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .accordion-content {
+    transition:
+      max-height 0.3s ease-out,
+      padding 0.3s ease;
+  }
+</style>
+
+<script>
+  const accordionHeader = document.querySelectorAll(".accordion-header");
+  accordionHeader.forEach((header) => {
+    header.addEventListener("click", function () {
+      const accordionContent = header?.parentElement?.querySelector(
+        ".accordion-content"
+      ) as HTMLElement;
+      let accordionMaxHeight = accordionContent?.style?.maxHeight;
+
+      // Condition handling
+      if (accordionMaxHeight == "0px" || accordionMaxHeight.length == 0) {
+        accordionContent.style.maxHeight = `${
+          accordionContent.scrollHeight + 32
+        }px`;
+        header?.querySelector(".fas")?.classList?.remove("rotate-45");
+        header?.classList?.add("bg-gray-200");
+      } else {
+        accordionContent.style.maxHeight = `0px`;
+        header?.querySelector(".fas")?.classList.add("rotate-45");
+        header?.classList?.remove("bg-gray-200");
+      }
+    });
+  });
+</script>

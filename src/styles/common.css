@@ -1,0 +1,26 @@
+html {
+    scroll-behavior: smooth
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.notoSerif {
+    font-family: 'Noto Serif JP', serif;
+}
+
+.common_width {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.anchor {
+    position: relative;
+}
+
+.anchor span {
+    position: absolute;
+    top: -2.5rem;
+}

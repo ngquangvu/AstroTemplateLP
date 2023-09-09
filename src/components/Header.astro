@@ -1,0 +1,35 @@
+---
+import HeaderNav from "./Header/HeaderNav.astro";
+import type { NavLink } from "./../types/types";
+import HeaderMenu from "./Header/HeaderMenu.astro";
+
+const navLinks: NavLink[] = [];
+navLinks.push({ title: "Section A", href: "#sectionA" });
+navLinks.push({ title: "Section B", href: "#sectionB" });
+navLinks.push({ title: "Section FAQ", href: "#faq" });
+navLinks.push({ title: "Section C", href: "#sectionC" });
+navLinks.push({ title: "<b>quangvu.blog</b>", href: "https://quangvu.blog" });
+---
+
+<header>
+  <div
+    class="fixed top-0 z-40 w-full h-[60px] flex items-center md:h-[70px] bg-white/80 backdrop-blur-sm shadow"
+  >
+    <div class="common_width flex items-center justify-between">
+      <a class="flex items-center hover:opacity-80" href="/">
+        <img
+          class="h-7 w-7 md:h-8 md:w-8 mr-2 md:mr-4"
+          src="/assets/images/logo.svg"
+          alt="Logo"
+        />
+        <h1 class="text-lg font-bold">Sample</h1>
+      </a>
+      <div class="hidden md:block">
+        <HeaderNav navLinks={navLinks} />
+      </div>
+      <div class="block md:hidden">
+        <HeaderMenu navLinks={navLinks} />
+      </div>
+    </div>
+  </div>
+</header>

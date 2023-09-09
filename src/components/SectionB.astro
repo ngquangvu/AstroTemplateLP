@@ -1,0 +1,15 @@
+---
+import SectionContent from "./Shared/SectionContent.astro";
+import SectionTitle from "./Shared/SectionTitle.astro";
+
+const title = "SectionB Title";
+const content = "Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br/>Doloremque vitae, vel amet ea praesentium nam repellendus necessitatibus alias deleniti autem consectetur asperiores recusandae, maiores totam error fuga vero! Ea, obcaecati? <br/> Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br/>Doloremque vitae, vel amet ea praesentium nam repellendus necessitatibus alias deleniti autem consectetur asperiores recusandae, maiores totam error fuga vero! Ea, obcaecati?";
+---
+
+<section class=" anchor bg-gray-200">
+  <span id="sectionB"></span>
+  <div class="common_width py-10">
+    <SectionTitle classes="mb-5" title={title} />
+    <SectionContent classes="mb-5" content={content} />
+  </div>
+</section>

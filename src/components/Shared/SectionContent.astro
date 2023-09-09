@@ -1,0 +1,7 @@
+---
+const { content, classes } = Astro.props;
+---
+
+<div class={`${classes} flex justify-center`}>
+  <p class="text-base" set:html={content}></p>
+</div>
