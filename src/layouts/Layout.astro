@@ -2,6 +2,8 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SEO } from "astro-seo";
+import i18next, { t } from "i18next";
+import { Trans, HeadHrefLangs } from "astro-i18next/components";
 
 const { title } = Astro.props;
 
@@ -14,7 +16,7 @@ const pageUrl = currentPath ? `${siteUrl}${currentPath}` : siteUrl;
 ---
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang={i18next.language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="generator" content={Astro.generator} />
@@ -66,6 +68,7 @@ const pageUrl = currentPath ? `${siteUrl}${currentPath}` : siteUrl;
         ],
       }}
     />
+    <HeadHrefLangs />
   </head>
   <body>
     <Header />

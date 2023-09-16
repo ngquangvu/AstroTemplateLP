@@ -2,12 +2,13 @@
 import HeaderNav from "./Header/HeaderNav.astro";
 import type { NavLink } from "./../types/types";
 import HeaderMenu from "./Header/HeaderMenu.astro";
+import { t } from "i18next";
 
 const navLinks: NavLink[] = [];
-navLinks.push({ title: "Section A", href: "#sectionA" });
-navLinks.push({ title: "Section B", href: "#sectionB" });
+navLinks.push({ title: t(`header.section A`), href: "#sectionA" });
+navLinks.push({ title: t(`header.section B`), href: "#sectionB" });
 navLinks.push({ title: "Section FAQ", href: "#faq" });
-navLinks.push({ title: "Section C", href: "#sectionC" });
+navLinks.push({ title: t(`header.section C`), href: "#sectionC" });
 navLinks.push({ title: "<b>quangvu.blog</b>", href: "https://quangvu.blog" });
 ---
 
